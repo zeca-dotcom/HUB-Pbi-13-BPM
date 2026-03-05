@@ -239,9 +239,106 @@
       border-radius: 0 0 16px 16px;
     }
 
+    /* Links úteis */
+    .links-content {
+      padding: 24px 28px 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-base) 100%);
+    }
+
+    .link-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-card);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(26, 26, 26, 0.05);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+      position: relative;
+    }
+
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-gold));
+      opacity: 0.85;
+    }
+
+    .link-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: 0 8px 24px var(--accent-gold-glow);
+      transform: translateY(-2px);
+    }
+
+    .link-card-header {
+      padding: 16px 18px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .link-card-title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin: 0;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+    }
+
+    .link-card-body {
+      padding: 14px 18px 18px;
+    }
+
+    .links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .links-list li {
+      margin-bottom: 8px;
+    }
+
+    .links-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .links-list a,
+    .link-single {
+      color: var(--accent-red);
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+      padding: 4px 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .links-list a:hover,
+    .links-list a:focus,
+    .link-single:hover,
+    .link-single:focus {
+      color: var(--accent-gold);
+      outline: none;
+      border-bottom-color: var(--accent-gold);
+    }
+
+    .link-single {
+      display: inline-block;
+    }
+
     @media (max-width: 768px) {
       body { padding: 16px 12px; }
       h1 { font-size: 1.85rem; }
+      .links-content { padding: 20px 20px 24px; grid-template-columns: 1fr; gap: 16px; }
       .report-frame iframe { height: 400px; }
       input[type="password"] { min-width: 150px; display: block; margin: 10px auto; }
       .unlock-btn { padding: 12px 24px; width: 100%; max-width: 300px; }
@@ -252,6 +349,52 @@
   <div class="page-title-wrap">
     <h1>13 BPM</h1>
     <p class="page-subtitle">Hub de Dashboards Power BI</p>
+  </div>
+
+  <!-- Links úteis -->
+  <div class="report-section links-section">
+    <div class="report-header">
+      <h2 class="report-title">📎 Links úteis</h2>
+    </div>
+    <div class="links-content">
+      <div class="link-card">
+        <div class="link-card-header">
+          <h3 class="link-card-title">Prêmio Excelência em Gestão Operacional 2026</h3>
+        </div>
+        <div class="link-card-body">
+          <ul class="links-list">
+            <li><a href="Memorando_004.3_2026-1_C2_AA_RPM_(Pr_C3_AAmio_Excel_C3_AAncia_em_Gest_C3_A3o_e_Desempenho_Operacional)_RETIFICADO.pdf" target="_blank" rel="noopener">Memorando</a></li>
+            <li><a href="Orienta_C3_A7_C3_B5es_sobre_os_indicadores_-_Pr_C3_AAmio_Excel_C3_AAncia_em_Gest_C3_A3o_e_Desempenho_Operacional_2026.pdf" target="_blank" rel="noopener">Orientações das métricas</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="link-card">
+        <div class="link-card-header">
+          <h3 class="link-card-title">GDO 2026</h3>
+        </div>
+        <div class="link-card-body">
+          <a href="Caderno_Metodologico_GDO_2026_assinado-1.pdf" target="_blank" rel="noopener" class="link-single">GDO 2026</a>
+        </div>
+      </div>
+      <div class="link-card">
+        <div class="link-card-header">
+          <h3 class="link-card-title">Indicadores de Interação Comunitária</h3>
+        </div>
+        <div class="link-card-body">
+          <a href="1_2B-_2BMemorando_2BT_C3_A9cnico_2Bn._2B005.2-2025-DOP_2B-_2BRETIFICADO_2B-_2BIntera_C3_A7_C3_A3o_2BComunit_C3_A1ria_2B-_2B1A7629A55BFC0-1.pdf" target="_blank" rel="noopener" class="link-single">Indicadores de Interação Comunitária</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Setores e Comandantes -->
+  <div class="report-section report-section--public">
+    <div class="report-header">
+      <h2 class="report-title">📋 Setores e Comandantes</h2>
+    </div>
+    <div class="report-frame visible" id="setores-frame">
+      <iframe title="Setores e Comandantes" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQgdY7OUgNlXcRZCfSGK67LKTwsO-tNDBRypIcNpjRtPfD4XBAiflRsLdTkJrjvNA/pubhtml?gid=837933322&amp;single=true&amp;widget=true&amp;headers=false" allowfullscreen></iframe>
+    </div>
   </div>
 
   <!-- Report 1: Interações Comunitárias (público, sem senha) -->
@@ -306,11 +449,26 @@
     </div>
   </div>
 
+  <!-- Report 5: Chamadas CAD -->
+  <div class="report-section">
+    <div class="report-header">
+      <h2 class="report-title">📞 Chamadas CAD</h2>
+    </div>
+    <div class="locked" id="chamadascad-locked">
+      <button class="unlock-btn" onclick="promptPassword('chamadascad')">Desbloquear Dashboard</button>
+      <span class="error" id="chamadascad-error"></span>
+    </div>
+    <div class="report-frame" id="chamadascad-frame">
+      <iframe title="chamadas_cad" src="https://app.powerbi.com/view?r=eyJrIjoiMGQzMDljOWItY2Y5Ni00NzBiLTk3NmItYThhNGIzYTJkMzE3IiwidCI6IjdjYWI1NzFlLWEyMGUtNDg2Mi1iNWY2LTE3M2I5NjEzMWYxOCJ9" allowfullscreen></iframe>
+    </div>
+  </div>
+
   <script>
     const passwords = {
       njd: 'njd@13bpm',
       licdisp: 'licdisp@13bpm',
-      carnaval2026: 'carnaval2026@13bpm'
+      carnaval2026: 'carnaval2026@13bpm',
+      chamadascad: 'chamadas@cad@13bpm'
     };
 
     function promptPassword(reportId) {
